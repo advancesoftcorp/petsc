@@ -1,7 +1,7 @@
 -include ../../../../petscdir.mk
 
 LIBBASE  = libpetscksp
-DIRS     = cr bcgs bcgsl cg cgs gmres cheby rich lsqr preonly tcqmr tfqmr qcg bicg minres symmlq lcd ibcgs python gcr fcg tsirm fetidp hpddm
+DIRS     = cr bcgs bcgsl cg cgs gmres cheby rich lsqr preonly tcqmr tfqmr qcg bicg minres symmlq lcd ibcgs python gcr fcg tsirm fetidp hpddm monolis
 LOCDIR   = src/ksp/ksp/impls/
 
 include ${PETSC_DIR}/lib/petsc/conf/variables
