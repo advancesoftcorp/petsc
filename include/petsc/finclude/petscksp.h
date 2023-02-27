@@ -20,6 +20,7 @@
 #define MatSchurComplementAinvType PetscEnum
 #define MatLMVMSymBroydenScaleType PetscEnum
 #define KSPHPDDMType PetscEnum
+#define KSPMONOLISType PetscEnum
 
 !
 !  Various Krylov subspace methods
@@ -71,6 +72,7 @@
 #define KSPCGLS 'cgls'
 #define KSPFETIDP 'fetidp'
 #define KSPHPDDM 'hpddm'
+#define KSPMONOLIS 'monolis'
 !
 !  Various Initial guesses for Krylov subspace methods
 !

@@ -50,6 +50,9 @@ PETSC_EXTERN PetscErrorCode KSPCreate_FETIDP(KSP);
 #if defined(PETSC_HAVE_HPDDM)
 PETSC_EXTERN PetscErrorCode KSPCreate_HPDDM(KSP);
 #endif
+#if defined(PETSC_HAVE_MONOLIS)
+PETSC_EXTERN PetscErrorCode KSPCreate_MONOLIS(KSP);
+#endif
 
 /*@C
   KSPRegisterAll - Registers all of the Krylov subspace methods in the `KSP` package.
@@ -116,6 +119,9 @@ PetscErrorCode KSPRegisterAll(void)
   PetscCall(KSPRegister(KSPFETIDP, KSPCreate_FETIDP));
 #if defined(PETSC_HAVE_HPDDM)
   PetscCall(KSPRegister(KSPHPDDM, KSPCreate_HPDDM));
+#endif
+#if defined(PETSC_HAVE_MONOLIS)
+  PetscCall(KSPRegister(KSPMONOLIS, KSPCreate_MONOLIS));
 #endif
   PetscFunctionReturn(0);
 }

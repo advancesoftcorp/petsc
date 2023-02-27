@@ -83,6 +83,7 @@ typedef const char *KSPType;
 #define KSPCGLS       "cgls"
 #define KSPFETIDP     "fetidp"
 #define KSPHPDDM      "hpddm"
+#define KSPMONOLIS    "monolis"
 
 /* Logging support */
 PETSC_EXTERN PetscClassId KSP_CLASSID;
@@ -334,6 +335,46 @@ typedef enum {
 } KSPHPDDMPrecision;
 PETSC_EXTERN PetscErrorCode KSPHPDDMSetType(KSP, KSPHPDDMType);
 PETSC_EXTERN PetscErrorCode KSPHPDDMGetType(KSP, KSPHPDDMType *);
+
+/*E
+    KSPMONOLISType - Type of Krylov method used by `Monolis`
+
+    Level: intermediate
+
+.seealso: `KSPMONLIS`, `KSPMONOLISSetType()`
+E*/
+typedef enum {
+  KSP_MONOLIS_TYPE_CG                  = 0,
+  KSP_MONOLIS_TYPE_BICGSTAB            = 1,
+  KSP_MONOLIS_TYPE_BiCGSTAB_noprec     = 2,
+  KSP_MONOLIS_TYPE_GROPCG              = 3,
+  KSP_MONOLIS_TYPE_PIPECG              = 4,
+  KSP_MONOLIS_TYPE_PIPECR              = 5,
+  KSP_MONOLIS_TYPE_PIPEBiCGSTAB        = 6,
+  KSP_MONOLIS_TYPE_PIPEBiCGSTAB_noprec = 7,
+  KSP_MONOLIS_TYPE_CABiCGSTAB_noprec   = 8,
+  KSP_MONOLIS_TYPE_SOR                 = 9,
+  KSP_MONOLIS_TYPE_IR                  = 10
+} KSPMONOLISType;
+PETSC_EXTERN const char *const KSPMONOLISTypes[];
+PETSC_EXTERN PetscErrorCode KSPMONOLISSetType(KSP, KSPMONOLISType);
+PETSC_EXTERN PetscErrorCode KSPMONOLISGetType(KSP, KSPMONOLISType *);
+
+typedef enum {
+  MONOLIS_PC_NONE                  = 0,
+  MONOLIS_PC_DIAG                  = 1,
+  MONOLIS_PC_ILU                   = 2,
+  MONOLIS_PC_JACOBI                = 3,
+  MONOLIS_PC_SOR                   = 4,
+  MONOLIS_PC_SAINV                 = 5,
+  MONOLIS_PC_RIF                   = 6,
+  MONOLIS_PC_SPIKE                 = 7,
+  MONOLIS_PC_DIRECT                = 8,
+  MONOLIS_PC_MUMPS                 = 9
+} KSPMONOLISPCType;
+PETSC_EXTERN const char *const KSPMONOLISPCTypes[];
+PETSC_EXTERN PetscErrorCode KSPMONOLISSetPCType(KSP, KSPMONOLISPCType);
+PETSC_EXTERN PetscErrorCode KSPMONOLISGetPCType(KSP, KSPMONOLISPCType *);
 
 /*E
     KSPGMRESCGSRefinementType - How the classical (unmodified) Gram-Schmidt is performed.
