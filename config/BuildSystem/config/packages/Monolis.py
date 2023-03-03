@@ -37,7 +37,7 @@ class Configure(config.package.Package):
 
     try:
       self.logPrintBox('Running configure on '+self.PACKAGE+'; this may take several minutes')
-      output2,err2,ret2  = config.package.Package.executeShellCommand('cd '+self.packageDir+' && '+makewithargs, timeout=6000, log = self.log)
+      output2,err2,ret2  = config.package.Package.executeShellCommand('cd '+self.packageDir + '  && '+'sh install_lib.sh'  +' && '+makewithargs, timeout=6000, log = self.log)
       libDir     = os.path.join(self.installDir, self.libdir)
       includeDir = os.path.join(self.installDir, self.includedir)
       self.logPrintBox('Running make on '+self.PACKAGE+'; this may take several minutes')
